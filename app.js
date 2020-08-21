@@ -8,7 +8,6 @@ const io = require('socket.io')(httpServer);
 io.on("connection", function (socket) {
     console.log("New client connected");
     console.log(socket.id);
-
     socket.on("color", function (color) {
         // console.log(data);
         socket.broadcast.emit('colorchange', color);
@@ -21,9 +20,9 @@ io.on("connection", function (socket) {
     })
 })
 
-// app.get("/", function (req, res) {
+// app.get("/home", function (req, res) {
 //     res.end("<h1>Welcome to home Page</h1>")
-})
+// })
 //  connection
 let port = process.env.PORT || 3000;
 httpServer.listen(port, function () {
